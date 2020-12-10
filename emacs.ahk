@@ -16,6 +16,8 @@ is_pre_spc = 0
 ; (Please comment out applications you don't use)
 is_target()
 {
+  IfWinActive,ahk_class SunAwtFrame ; IDEA
+    Return 1
   IfWinActive,ahk_class vcxsrv/x X rl ; Emacs
   Return 1
   IfWinActive,ahk_class ApplicationFrameWindow ; Fluent Terminal
@@ -37,8 +39,6 @@ is_target()
   ;   Return 1
   ; IfWinActive,ahk_class Xming X
   ;   Return 1
-  IfWinActive,ahk_class SunAwtFrame; IDEA
-    Return 1
   ; IfWinActive,ahk_class Emacs ; NTEmacs
   ;   Return 1  
   ; IfWinActive,ahk_class XEmacs ; XEmacs on Cygwin
