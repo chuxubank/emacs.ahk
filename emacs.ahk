@@ -16,12 +16,16 @@ is_pre_spc = 0
 ; (Please comment out applications you don't use)
 is_target()
 {
+  IfWinActive,ahk_class vcxsrv/x X rl ; Emacs
+  Return 1
+  IfWinActive,ahk_class ApplicationFrameWindow ; Fluent Terminal
+    Return 1
   IfWinActive,ahk_class ConsoleWindowClass ; Cygwin
     Return 1 
   IfWinActive,ahk_class MEADOW ; Meadow
     Return 1 
   IfWinActive,ahk_class cygwin/x X rl-xterm-XTerm-0
-    Return 1
+  Return 1
   IfWinActive,ahk_class MozillaUIWindowClass ; keysnail on Firefox
     Return 1
   ; Avoid VMwareUnity with AutoHotkey
@@ -29,16 +33,16 @@ is_target()
     Return 1
   IfWinActive,ahk_class Vim ; GVIM
     Return 1
-;  IfWinActive,ahk_class SWT_Window0 ; Eclipse
-;    Return 1
-;   IfWinActive,ahk_class Xming X
-;     Return 1
-;   IfWinActive,ahk_class SunAwtFrame
-;     Return 1
-;   IfWinActive,ahk_class Emacs ; NTEmacs
-;     Return 1  
-;   IfWinActive,ahk_class XEmacs ; XEmacs on Cygwin
-;     Return 1
+  ; IfWinActive,ahk_class SWT_Window0 ; Eclipse
+  ;   Return 1
+  ; IfWinActive,ahk_class Xming X
+  ;   Return 1
+  IfWinActive,ahk_class SunAwtFrame; IDEA
+    Return 1
+  ; IfWinActive,ahk_class Emacs ; NTEmacs
+  ;   Return 1  
+  ; IfWinActive,ahk_class XEmacs ; XEmacs on Cygwin
+  ;   Return 1
   Return 0
 }
 
@@ -140,6 +144,12 @@ save_buffer()
   global is_pre_x = 0
   Return
 }
+kill_buffer()
+{
+  Send ^w
+  global is_pre_x = 0
+  Return
+}
 kill_emacs()
 {
   Send !{F4}
@@ -220,13 +230,12 @@ scroll_down()
   Return
 }
 
-
 ^x::
   If is_target()
     Send %A_ThisHotkey%
   Else
     is_pre_x = 1
-  Return 
+Return 
 ^f::
   If is_target()
     Send %A_ThisHotkey%
@@ -237,7 +246,7 @@ scroll_down()
     Else
       forward_char()
   }
-  Return  
+Return 
 ^c::
   If is_target()
     Send %A_ThisHotkey%
@@ -246,25 +255,30 @@ scroll_down()
     If is_pre_x
       kill_emacs()
   }
-  Return  
+Return 
 ^d::
   If is_target()
     Send %A_ThisHotkey%
   Else
     delete_char()
-  Return
+Return
 ^h::
   If is_target()
     Send %A_ThisHotkey%
   Else
     delete_backward_char()
-  Return
+Return
 ^k::
   If is_target()
     Send %A_ThisHotkey%
   Else
-    kill_line()
-  Return
+  {
+    If is_pre_x
+      kill_buffer()
+    Else
+      kill_line()
+  }
+Return
 ;; ^o::
 ;;   If is_target()
 ;;     Send %A_ThisHotkey%
@@ -276,7 +290,7 @@ scroll_down()
     Send %A_ThisHotkey%
   Else
     quit()
-  Return
+Return
 ;; ^j::
 ;;   If is_target()
 ;;     Send %A_ThisHotkey%
@@ -288,13 +302,13 @@ scroll_down()
     Send %A_ThisHotkey%
   Else
     newline()
-  Return
+Return
 ^i::
   If is_target()
     Send %A_ThisHotkey%
   Else
     indent_for_tab_command()
-  Return
+Return
 ^s::
   If is_target()
     Send %A_ThisHotkey%
@@ -305,38 +319,38 @@ scroll_down()
     Else
       isearch_forward()
   }
-  Return
+Return
 ^r::
   If is_target()
     Send %A_ThisHotkey%
   Else
     isearch_backward()
-  Return
+Return
 ^w::
   If is_target()
     Send %A_ThisHotkey%
   Else
     kill_region()
-  Return
+Return
 !w::
   If is_target()
     Send %A_ThisHotkey%
   Else
     kill_ring_save()
-  Return
+Return
 ^y::
   If is_target()
     Send %A_ThisHotkey%
   Else
     yank()
-  Return
+Return
 ^/::
   If is_target()
     Send %A_ThisHotkey%
   Else
     undo()
-  Return  
-  
+Return 
+
 ;$^{Space}::
 ;^vk20sc039::
 ^vk20::
@@ -349,7 +363,7 @@ scroll_down()
     Else
       is_pre_spc = 1
   }
-  Return
+Return
 ^@::
   If is_target()
     Send %A_ThisHotkey%
@@ -360,47 +374,47 @@ scroll_down()
     Else
       is_pre_spc = 1
   }
-  Return
+Return
 ^a::
   If is_target()
     Send %A_ThisHotkey%
   Else
     move_beginning_of_line()
-  Return
+Return
 ^e::
   If is_target()
     Send %A_ThisHotkey%
   Else
     move_end_of_line()
-  Return
+Return
 ^p::
   If is_target()
     Send %A_ThisHotkey%
   Else
     previous_line()
-  Return
+Return
 ^n::
   If is_target()
     Send %A_ThisHotkey%
   Else
     next_line()
-  Return
+Return
 ^b::
   If is_target()
     Send %A_ThisHotkey%
   Else
     backward_char()
-  Return
+Return
 ^v::
   If is_target()
     Send %A_ThisHotkey%
   Else
     scroll_down()
-  Return
+Return
 !v::
   If is_target()
     Send %A_ThisHotkey%
   Else
     scroll_up()
-  Return
+Return
 
