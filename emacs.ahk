@@ -316,6 +316,17 @@ Return
   Else
     delete_backward_char()
 Return
+k::
+  If is_target()
+    Send %A_ThisHotkey%
+  Else
+  {
+    If is_pre_x
+      kill_buffer()
+    Else
+      Send %A_ThisHotkey%
+  }
+Return
 ^k::
   If is_target()
     Send %A_ThisHotkey%

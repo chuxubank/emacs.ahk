@@ -30,6 +30,10 @@ This script is written in AutoHotkey (AHK) and has been maintained since Sep 21,
 <td>kill-emacs</td>
 </tr>
 <tr>
+<td>C-x C-k / C-x k</td>
+<td>kill-buffer</td>
+</tr>
+<tr>
 <td>C-x h</td>
 <td>select-all</td>
 </tr>
@@ -136,24 +140,6 @@ This script is written in AutoHotkey (AHK) and has been maintained since Sep 21,
 <tr>
 <td>M-></td>
 <td>goto end</td>
-</tr>
-
-
-<tr>
-<td>W-c</td>
-<td>copy</td>
-</tr>
-<tr>
-<td>W-x</td>
-<td>cut</td>
-</tr>
-<tr>
-<td>W-v</td>
-<td>paste</td>
-</tr>
-<tr>
-<td>W-a</td>
-<td>select-all</td>
 </tr>
 </table>
 
