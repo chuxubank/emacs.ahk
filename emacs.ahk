@@ -160,7 +160,7 @@ kill_emacs()
 move_beginning_of_line()
 {
   global
-  if is_pre_spc
+  If is_pre_spc
     Send +{HOME}
   Else
     Send {HOME}
@@ -169,7 +169,7 @@ move_beginning_of_line()
 move_end_of_line()
 {
   global
-  if is_pre_spc
+  If is_pre_spc
     Send +{END}
   Else
     Send {END}
@@ -178,7 +178,7 @@ move_end_of_line()
 previous_line()
 {
   global
-  if is_pre_spc
+  If is_pre_spc
     Send +{Up}
   Else
     Send {Up}
@@ -187,7 +187,7 @@ previous_line()
 next_line()
 {
   global
-  if is_pre_spc
+  If is_pre_spc
     Send +{Down}
   Else
     Send {Down}
@@ -196,7 +196,7 @@ next_line()
 forward_char()
 {
   global
-  if is_pre_spc
+  If is_pre_spc
     Send +{Right}
   Else
     Send {Right}
@@ -205,7 +205,7 @@ forward_char()
 backward_char()
 {
   global
-  if is_pre_spc
+  If is_pre_spc
     Send +{Left} 
   Else
     Send {Left}
@@ -214,7 +214,7 @@ backward_char()
 scroll_up()
 {
   global
-  if is_pre_spc
+  If is_pre_spc
     Send +{PgUp}
   Else
     Send {PgUp}
@@ -223,7 +223,7 @@ scroll_up()
 scroll_down()
 {
   global
-  if is_pre_spc
+  If is_pre_spc
     Send +{PgDn}
   Else
     Send {PgDn}
