@@ -76,6 +76,7 @@ quit()
 {
   Send {ESC}
   global is_pre_spc = 0
+  global is_pre_x = 0
   Return
 }
 newline()
@@ -157,6 +158,13 @@ kill_emacs()
   Return
 }
 
+select_all()
+{
+  Send ^a
+  global is_pre_x = 0
+  Return
+}
+
 move_beginning_of_line()
 {
   global
@@ -175,6 +183,26 @@ move_end_of_line()
     Send {END}
   Return
 }
+
+move_to_beginning()
+{
+  global
+  if is_pre_spc
+    Send +^{HOME}
+  Else
+    Send ^{HOME}
+  Return
+}
+move_to_end()
+{
+  global
+  if is_pre_spc
+    Send +^{END}
+  Else
+    Send ^{END}
+  Return
+}
+
 previous_line()
 {
   global
@@ -211,6 +239,26 @@ backward_char()
     Send {Left}
   Return
 }
+
+forward_word()
+{
+  global
+  if is_pre_spc
+    Send +^{Right}
+  Else
+    Send ^{Right}
+  Return
+}
+backward_word()
+{
+  global
+  if is_pre_spc
+    Send +^{Left}
+  Else
+    Send ^{Left}
+  Return
+}
+
 scroll_up()
 {
   global
@@ -418,3 +466,38 @@ Return
     scroll_up()
 Return
 
+!f::
+  If is_target()
+    Send %A_ThisHotkey%
+  Else
+    forward_word()
+Return
+!b::
+  If is_target()
+    Send %A_ThisHotkey%
+  Else
+    backward_word()
+Return
+!<::
+  If is_target()
+    Send %A_ThisHotkey%
+  Else
+    move_to_beginning()
+Return
+!>::
+  If is_target()
+    Send %A_ThisHotkey%
+  Else
+    move_to_end()
+Return
+h::
+  If is_target()
+    Send %A_ThisHotkey%
+  Else
+  {
+    if is_pre_x
+      select_all()
+    Else
+      Send %A_ThisHotkey%
+  }
+Return

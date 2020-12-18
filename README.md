@@ -1,11 +1,13 @@
 # emacs.ahk 
-This tiny script allows you to use the emacs-like key bindings on Windows, which is written in AutoHotkey (AHK) language. The maintainer has used this script since 2007 and has verified that it works effectively for various kinds of applications.
+Allows you to use emacs-like key bindings on Windows environment.
+
+This script is written in AutoHotkey (AHK) and has been maintained since Sep 21, 2007.
 
 ## Supported keybindings
 <table>
   <tr>
     <th>Keybinding</th>
-    <th>Emacs Lisp Function</th>
+    <th>Function(Emacs Lisp)</th>
   </tr>
 <tr>
 <td>C-Space</td>
@@ -26,6 +28,10 @@ This tiny script allows you to use the emacs-like key bindings on Windows, which
 <tr>
 <td>C-x C-c</td>
 <td>kill-emacs</td>
+</tr>
+<tr>
+<td>C-x h</td>
+<td>select-all</td>
 </tr>
 <tr>
 <td>C-d</td>
@@ -108,6 +114,14 @@ This tiny script allows you to use the emacs-like key bindings on Windows, which
 <td>backward-char</td>
 </tr>
 <tr>
+<td>M-f</td>
+<td>forward-word</td>
+</tr>
+<tr>
+<td>M-b</td>
+<td>backward-word</td>
+</tr>
+<tr>
 <td>C-v</td>
 <td>scroll-down</td>
 </tr>
@@ -115,12 +129,40 @@ This tiny script allows you to use the emacs-like key bindings on Windows, which
 <td>M-v</td>
 <td>scroll-up</td>
 </tr>
+<tr>
+<td>M-<</td>
+<td>goto home</td>
+</tr>
+<tr>
+<td>M-></td>
+<td>goto end</td>
+</tr>
+
+
+<tr>
+<td>W-c</td>
+<td>copy</td>
+</tr>
+<tr>
+<td>W-x</td>
+<td>cut</td>
+</tr>
+<tr>
+<td>W-v</td>
+<td>paste</td>
+</tr>
+<tr>
+<td>W-a</td>
+<td>select-all</td>
+</tr>
 </table>
 
 
-## Some webpages that introduced this script
+## Webpages introducing this script
 * [AutoHotkeyでemacs風キーバインド - torutkの日記](http://d.hatena.ne.jp/torutk/20101009/p2)
 * [オダろぐ : Emacs＞AutoHotKey の Emacsモードを使うことにした](http://blog.livedoor.jp/odaxsen/archives/1546840.html)
 * [AutoHotkey &laquo; sea side she side](http://www.a10i.jp/?tag=autohotkey)
 * [NTEmacs @ ウィキ - Windows の操作を emacs のキーバインドで行う設定 （AutoHotKey版）](http://www49.atwiki.jp/ntemacs/pages/20.html)
     * Customized by 2cher
+* [WindowsでEmacs風キーバインド - Usipedia](http://usi3.com/index.php?title=Windows%E3%81%A7Emacs%E9%A2%A8%E3%82%AD%E3%83%BC%E3%83%90%E3%82%A4%E3%83%B3%E3%83%89)
+    * My web site
