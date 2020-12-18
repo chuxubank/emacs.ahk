@@ -52,12 +52,6 @@ delete_char()
   global is_pre_spc = 0
   Return
 }
-delete_backward_char()
-{
-  Send {BS}
-  global is_pre_spc = 0
-  Return
-}
 kill_line()
 {
   Send {ShiftDown}{END}{SHIFTUP}
@@ -309,12 +303,6 @@ Return
     Send %A_ThisHotkey%
   Else
     delete_char()
-Return
-^h::
-  If is_target()
-    Send %A_ThisHotkey%
-  Else
-    delete_backward_char()
 Return
 k::
   If is_target()

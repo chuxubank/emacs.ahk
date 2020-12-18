@@ -42,10 +42,6 @@ This script is written in AutoHotkey (AHK) and has been maintained since Sep 21,
 <td>delete-char</td>
 </tr>
 <tr>
-<td>C-h</td>
-<td>delete-backward-char</td>
-</tr>
-<tr>
 <td>C-k</td>
 <td>kill-line</td>
 </tr>
