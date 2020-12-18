@@ -187,7 +187,7 @@ move_end_of_line()
 move_to_beginning()
 {
   global
-  if is_pre_spc
+  If is_pre_spc
     Send +^{HOME}
   Else
     Send ^{HOME}
@@ -196,7 +196,7 @@ move_to_beginning()
 move_to_end()
 {
   global
-  if is_pre_spc
+  If is_pre_spc
     Send +^{END}
   Else
     Send ^{END}
@@ -243,7 +243,7 @@ backward_char()
 forward_word()
 {
   global
-  if is_pre_spc
+  If is_pre_spc
     Send +^{Right}
   Else
     Send ^{Right}
@@ -252,7 +252,7 @@ forward_word()
 backward_word()
 {
   global
-  if is_pre_spc
+  If is_pre_spc
     Send +^{Left}
   Else
     Send ^{Left}
@@ -495,7 +495,7 @@ h::
     Send %A_ThisHotkey%
   Else
   {
-    if is_pre_x
+    If is_pre_x
       select_all()
     Else
       Send %A_ThisHotkey%
