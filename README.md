@@ -42,6 +42,14 @@ This script is written in AutoHotkey (AHK) and has been maintained since Sep 21,
 <td>delete-char</td>
 </tr>
 <tr>
+<td>M-d</td>
+<td>kill-word</td>
+</tr>
+<tr>
+<td>M-DEL</td>
+<td>backward-kill-word</td>
+</tr>
+<tr>
 <td>C-k</td>
 <td>kill-line</td>
 </tr>

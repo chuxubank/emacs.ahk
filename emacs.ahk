@@ -62,22 +62,21 @@ delete_char()
 }
 kill_word()
 {
-  Send ^{Del}
-  global is_pre_spc = 0
+  Send +^{Right}
+  kill_region()
   Return
 }
 backward_kill_word()
 {
-  Send ^{BS}
-  global is_pre_spc = 0
+  Send +^{Left}
+  kill_region()
   Return
 }
 kill_line()
 {
   Send {Shift down}{End}{Shift up}
   Sleep 50 ;[ms] this value depends on your environment
-  Send ^x
-  global is_pre_spc = 0
+  kill_region()
   Return
 }
 open_line()
