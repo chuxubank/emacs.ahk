@@ -66,6 +66,12 @@ kill_word()
   global is_pre_spc = 0
   Return
 }
+backward_kill_word()
+{
+  Send ^{BS}
+  global is_pre_spc = 0
+  Return
+}
 kill_line()
 {
   Send {Shift down}{End}{Shift up}
@@ -341,6 +347,12 @@ Return
     Send %A_ThisHotkey%
   Else
     kill_word()
+Return
+!BS::
+  If is_target()
+    Send %A_ThisHotkey%
+  Else
+    backward_kill_word()
 Return
 k::
   If is_target()
