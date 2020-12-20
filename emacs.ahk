@@ -1,6 +1,7 @@
 ;;
 ;; An autohotkey script that provides emacs-like keybinding on Windows
 ;;
+SetTitleMatchMode, 2
 #InstallKeybdHook
 #UseHook
 
@@ -20,7 +21,7 @@ is_target()
     Return 1
   IfWinActive,ahk_class vcxsrv/x X rl ; Emacs
   Return 1
-  IfWinActive,ahk_class ApplicationFrameWindow ; Fluent Terminal
+  IfWinActive Fluent Terminal
     Return 1
   IfWinActive,ahk_class ConsoleWindowClass ; Cygwin
     Return 1 
