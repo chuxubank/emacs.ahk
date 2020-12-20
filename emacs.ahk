@@ -1,9 +1,12 @@
 ;;
 ;; An autohotkey script that provides emacs-like keybinding on Windows
 ;;
-SetTitleMatchMode, 2
-#InstallKeybdHook
-#UseHook
+SendMode Input ; Recommended for new scripts due to its superior speed and reliability.
+SetTitleMatchMode, 2 ; A window's title can contain WinTitle anywhere inside it to be a match. 
+#UseHook On ; Make it a bit slow, but can avoid infinitude loop. Same as "$" for each hotkey
+#InstallKeybdHook ; For checking key history. Use ~500kB memory?
+#HotkeyInterval 2000 ; Hotkey interval (default 2000 milliseconds).
+#MaxHotkeysPerInterval 70 ; Max hotkeys per interval (default 50).
 
 ; The following line is a contribution of NTEmacs wiki http://www49.atwiki.jp/ntemacs/pages/20.html
 SetKeyDelay 0
@@ -73,8 +76,11 @@ open_line()
 }
 quit()
 {
+  global 
+  is_pre_spc = 0
+  is_pre_x = 0
+  is_pre_search = 0
   Send {ESC}
-  global is_pre_spc, is_pre_x, is_pre_search = 0
   Return
 }
 newline()
