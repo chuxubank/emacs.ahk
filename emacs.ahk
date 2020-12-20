@@ -23,6 +23,8 @@ is_target()
   Return 1
   IfWinActive Fluent Terminal
     Return 1
+  IfWinActive,ahk_exe WindowsTerminal.exe
+    Return 1
   IfWinActive,ahk_class ConsoleWindowClass ; Cygwin
     Return 1 
   IfWinActive,ahk_class MEADOW ; Meadow
