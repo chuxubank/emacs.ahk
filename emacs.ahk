@@ -68,7 +68,7 @@ kill_word()
 }
 kill_line()
 {
-  Send {ShiftDown}{END}{SHIFTUP}
+  Send {Shift down}{End}{Shift up}
   Sleep 50 ;[ms] this value depends on your environment
   Send ^x
   global is_pre_spc = 0
@@ -76,7 +76,7 @@ kill_line()
 }
 open_line()
 {
-  Send {END}{Enter}{Up}
+  Send {End}{Enter}{Up}
   global is_pre_spc = 0
   Return
 }
@@ -195,18 +195,18 @@ move_beginning_of_line()
 {
   global
   If is_pre_spc
-    Send +{HOME}
+    Send +{Home}
   Else
-    Send {HOME}
+    Send {Home}
   Return
 }
 move_end_of_line()
 {
   global
   If is_pre_spc
-    Send +{END}
+    Send +{End}
   Else
-    Send {END}
+    Send {End}
   Return
 }
 
@@ -214,18 +214,18 @@ move_to_beginning()
 {
   global
   If is_pre_spc
-    Send +^{HOME}
+    Send +^{Home}
   Else
-    Send ^{HOME}
+    Send ^{Home}
   Return
 }
 move_to_end()
 {
   global
   If is_pre_spc
-    Send +^{END}
+    Send +^{End}
   Else
-    Send ^{END}
+    Send ^{End}
   Return
 }
 
