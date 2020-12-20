@@ -12,6 +12,8 @@ SetKeyDelay 0
 is_pre_x = 0
 ; turns to be 1 when ctrl-space is pressed
 is_pre_spc = 0
+; turns to be 1 when ctrl-s is pressed
+is_pre_search = 0
 
 ; Applications you want to disable emacs-like keybindings
 ; (Please comment out applications you don't use)
@@ -72,8 +74,7 @@ open_line()
 quit()
 {
   Send {ESC}
-  global is_pre_spc = 0
-  global is_pre_x = 0
+  global is_pre_spc, is_pre_x, is_pre_search = 0
   Return
 }
 newline()
@@ -96,14 +97,24 @@ newline_and_indent()
 }
 isearch_forward()
 {
-  Send ^f
-  global is_pre_spc = 0
+  global
+  If is_pre_search
+    Send {Enter}
+  Else
+    Send ^f
+  is_pre_spc = 0
+  is_pre_search = 1
   Return
 }
 isearch_backward()
 {
-  Send ^f
-  global is_pre_spc = 0
+  global
+  If is_pre_search
+    Send +{Enter}
+  Else
+    Send ^f
+  is_pre_spc = 0
+  is_pre_search = 1
   Return
 }
 kill_region()
