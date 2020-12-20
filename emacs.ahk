@@ -141,6 +141,12 @@ undo()
   global is_pre_spc = 0
   Return
 }
+redo()
+{
+  Send +^z
+  global is_pre_spc = 0
+  Return
+}
 find_file()
 {
   Send ^o
@@ -410,7 +416,13 @@ Return
     Send %A_ThisHotkey%
   Else
     undo()
-Return 
+Return
++!_::
+  If is_target()
+    Send %A_ThisHotkey%
+  Else
+    redo()
+Return
 
 ;$^{Space}::
 ;^vk20sc039::

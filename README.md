@@ -90,6 +90,10 @@ This script is written in AutoHotkey (AHK) and has been maintained since Sep 21,
 <td>undo</td>
 </tr>
 <tr>
+<td>M-_</td>
+<td>redo</td>
+</tr>
+<tr>
 <td>C-a</td>
 <td>move-beginning-of-line</td>
 </tr>
