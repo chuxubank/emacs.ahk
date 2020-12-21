@@ -349,7 +349,7 @@ Return
 Return
 !BS::
   If is_target()
-    Send %A_ThisHotkey%
+    Send !{BS}
   Else
     backward_kill_word()
 Return
