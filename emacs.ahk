@@ -140,6 +140,12 @@ kill_region()
   global is_pre_spc = 0
   Return
 }
+comment_dwim()
+{
+  Send ^/
+  global is_pre_spc = 0
+  Return
+}
 kill_ring_save()
 {
   Send ^c
@@ -554,4 +560,10 @@ h::
     Else
       Send %A_ThisHotkey%
   }
+Return
+!;::
+If is_target()
+  Send %A_ThisHotkey%
+Else
+  comment_dwim()
 Return
