@@ -22,6 +22,8 @@ is_pre_search = 0
 ; (Please comment out applications you don't use)
 is_target()
 {
+  IfWinActive,ahk_exe vlc.exe
+    Return 1
   IfWinActive,ahk_class mintty
     Return 1
   IfWinActive,ahk_class Emacs ; Emacs
